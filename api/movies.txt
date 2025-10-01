@@ -1,0 +1,13 @@
+Jaws,1975,Steven Spielberg
+Star Wars,1975,George Lucas
+Vanilla Sky,2001,Cameron Crowe
+The Mission,1986,Rolan Joffe
+Bridget Jones Diary,2001,Sharron McGuire
+Back to the future,1985,Robert Zemeckis
+Home alone,1985,Spielberg
+Interstellar,2010,Christopher nolan
+The notebook,2020,Scorcese
+test movie,2025,mr director
+The Incredibles,2000,Steven Spielberg
+Monsters Inc,Steven Spielberg,2005
+test movie,1999,test director
