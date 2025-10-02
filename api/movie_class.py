@@ -4,8 +4,6 @@ class Movie:
         self._title = title
         self._year = year
 
-
-
     def get_title(self):
         return self._title
 

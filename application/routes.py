@@ -1,19 +1,20 @@
+from api.movie_class import Movie
 from app import app
-from api.movie_list import MovieList
+from api.movie_list_db import MovieListDB
 from flask import jsonify, request, render_template
 
 @app.route('/api/movies', methods=["GET"])
 
 #Returns list of all movies
 def load_movies():
-    movie_data = MovieList("api/movies.txt")
+    movie_data = MovieListDB()
     movies = [
         {
             "title": movie.get_title(),
             "director": movie.get_director(),
             "year": movie.get_year(),
         }
-        for movie in movie_data.get_movies()
+        for movie in movie_data.load_movies()
     ]
     return jsonify(movies)
 
@@ -24,8 +25,9 @@ def create_movie():
     director = request.form.get("director")
     year = request.form.get("year")
 
-    movie_data = MovieList("api/movies.txt")
-    movie_data.add_movie(title, director, year)
+    movie_data = MovieListDB()
+    m = Movie(title, year, director)
+    movie_data.add_movie(m)
 
     return "Movie added successfully!", 201
 
