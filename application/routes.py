@@ -4,7 +4,6 @@ from api.movie_list_db import MovieListDB
 from flask import jsonify, request, render_template
 
 @app.route('/api/movies', methods=["GET"])
-
 #Returns list of all movies
 def load_movies():
     movie_data = MovieListDB()
@@ -16,7 +15,7 @@ def load_movies():
         }
         for movie in movie_data.load_movies()
     ]
-    return jsonify(movies)
+    return render_template("list_movie.html")
 
 #Adds a new movie
 @app.route('/api/movies', methods=["POST"])
