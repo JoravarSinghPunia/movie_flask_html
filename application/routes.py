@@ -7,15 +7,16 @@ from flask import jsonify, request, render_template
 #Returns list of all movies
 def load_movies():
     movie_data = MovieListDB()
-    movies = [
-        {
-            "title": movie.get_title(),
-            "director": movie.get_director(),
-            "year": movie.get_year(),
-        }
-        for movie in movie_data.load_movies()
-    ]
-    return render_template("list_movie.html")
+    movies = movie_data.load_movies()
+        # {
+        #     "title": movie.get_title(),
+        #     "director": movie.get_director(),
+        #     "year": movie.get_year(),
+        # }
+    #     for movie in movie_data.load_movies()]
+    # #
+    # # print(movies)
+    return render_template("home.html", movies=movies)
 
 #Adds a new movie
 @app.route('/api/movies', methods=["POST"])

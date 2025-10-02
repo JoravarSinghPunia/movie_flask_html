@@ -8,12 +8,12 @@
 <body>
     <h1>Movie List</h1>
     <ul>
-<!--        {% for movie in movies %}-->
-            <li>
-                <strong>{{ movie.title }}</strong>
-                ({{ movie.year }}) - Directed by {{ movie.director }}
+        {% for movie in movies %}
+            <li> movie
+                <strong>{{movie._title}}</strong>
+                ({{movie._year}}) - Directed by {{movie._director}}
             </li>
-<!--        {% endfor %}-->
+        {% endfor %}
     </ul>
 </body>
 </html>
