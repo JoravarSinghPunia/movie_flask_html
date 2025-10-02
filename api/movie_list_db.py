@@ -10,10 +10,10 @@ class MovieListDB:
         try:
             with get_connection(self) as db:
                 cursor = db.cursor()
-                cursor.execute("SELECT * FROM movie_list")
+                cursor.execute("SELECT title, year, director FROM movie_list")
                 data = cursor.fetchall()
                 for row in data:
-                    movie = Movie(row[1], row[2], row[3])
+                    movie = Movie(row[0], row[1], row[2])
                     movies.append(movie)
         except Exception as e:
             print(f"Error loading movies: {e}")
@@ -28,6 +28,15 @@ class MovieListDB:
 
         except Exception as e:
             print(f"Error loading movies: {e}")
+
+    def get_connection(self):
+        mydb = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="movies"
+        )
+        return mydb
 
 
     # def save_movies(self, filename):
@@ -76,12 +85,5 @@ class MovieListDB:
     # def get_movies(self):
     #     return self._movies
 
-def get_connection(self):
-    mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="movies"
-    )
-    return mydb
+
 

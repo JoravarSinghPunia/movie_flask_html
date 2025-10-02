@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <title>Movie List</title>
 </head>
-<body>
-    <h1>Movie List</h1>
+<body style="background-color= #90d5ff;" >
+    <h1 style="colour:blue;">Movie List</h1>
     <ul>
         {% for movie in movies %}
-            <li> movie
+            <li>
                 <strong>{{movie._title}}</strong>
                 ({{movie._year}}) - Directed by {{movie._director}}
             </li>
